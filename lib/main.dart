@@ -11,13 +11,6 @@ const _ingredientCardColor = Color(0xFFD5AE7F);
 const _ingredientTextColor = Color(0xFF2F430D);
 
 // Common styles
-const _titleStyle = TextStyle(
-  fontSize: 28,
-  fontWeight: FontWeight.bold,
-  color: Colors.white,
-  letterSpacing: 1.2,
-);
-
 const _tabStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 18);
 
 const _instructionStyle = TextStyle(
@@ -25,6 +18,12 @@ const _instructionStyle = TextStyle(
   fontSize: 18,
   height: 1.5,
   fontWeight: FontWeight.bold,
+);
+
+const _titleStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 24,
+  color: Colors.brown,
 );
 
 class RecipeApp extends StatelessWidget {
@@ -177,6 +176,53 @@ class _RecipePageState extends State<RecipePage> {
                 child: Column(
                   children: [
                     _buildTopBar(),
+                    const SizedBox(height: 20),
+
+                    // Title
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 32,
+                        vertical: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        color: _buttonColor,
+                        borderRadius: BorderRadius.circular(25),
+                        border: Border.all(
+                          color: const Color(0xFFD5AE7F),
+                          width: 2,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black,
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: const Text(
+                        'Grilled Chicken Salad',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 16),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          'assets/salad.png',
+                          width: double.infinity,
+                          height: 200,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 20),
 
                     // Content
